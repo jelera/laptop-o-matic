@@ -191,34 +191,72 @@ essential:
       - prettier # gem-prettier for Ruby
       - haml-lint
 
-- Linters
-- pip3 install --upgrade setuptools
-- Global npm, pip and gems packages
+  #-----------------------------------#
+  # Vim
+  #-----------------------------------#
+  - message : "Vim"
+    ppa: 
+      - "ppa:jonathonf/vim"
+    pre_custom_commands: 
+      ubuntu:
+        - "sudo apt purge -y vim vim-tiny vim-runtime vim-common"
+    packages :
+      ubuntu:
+        - vim-gtk3
 
+  #-----------------------------------#
+  # Development Software (CLI)
+  #-----------------------------------#
+  - message : "Development Software (CLI)"
+    packages :
+      ubuntu:
+        - gpg
+        - tmux
+        - htop
+        - tree
+        - silversearcher-ag
+        - ripgrep
+        - xcape
+        - postgresql
+        - postgresql-contrib
+      snap:
+        - universal-ctags
+    post_custom_commands:
+      snap:
+        - "sudo snap alias universal-ctags ctags"
+      
+  #-----------------------------------#
+  # VirtualBox
+  #-----------------------------------#
+  - message : "VirtualBox 6.x"
+    pre_custom_commands:
+      ubuntu: 
+        - 'wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -'
+        - 'echo "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian $(cat /etc/os-release | grep UBUNTU_CODENAME | cut -d = -f 2) contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list'
+        - 'sudo apt update '
+    packages :
+      ubuntu:
+        - virtualbox-6.0
+      
+  #-----------------------------------#
+  # Development Software (GUI)
+  #-----------------------------------#
+  - message : "Development Software (GUI)"
+    ppa:
+      - "ppa:zeal-developers/ppa"
+    packages :
+      ubuntu:
+        - filezilla
+        - meld
+        - gitg
+        - zeal
+        - jupyter-qtconsole
+      snap:
+        - "code --classic"
+        - "postman"
+        - "ripgrep --classic"
+        - "sqlitebrowser --edge"
 
-- development sofware (CLI)
-- Vim
-- gpg
-- tmux
-- htop
-- tree
-- silversearcher-ag
-- ripgrep
-- universal-ctags (and alias ctags)
-- xcape
-- postgresql
-- postgresql-contrib
-
-- development sofware (GUI)
-- VScode
-- virtualbox 6
-- postman
-- filezilla
-- meld
-- gitg
-- zeal
-- jupyter-qtconsole
-- sqlitebrowser
 
 - CLI Sofware
 - Utilities
