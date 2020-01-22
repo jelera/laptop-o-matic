@@ -1,0 +1,246 @@
+################################################################################
+#
+#
+# USAGE: Use this format new packages or set of them as follows
+#
+# NOTE: Snaps and flatpak will take precendence and the install script will
+#       ignore the rest of the lines.
+#
+#
+# #-----------------------------------#
+# # Package title
+# #-----------------------------------#
+# - message : "Package title"
+#   ppa: "ppa:some_user/some_project"
+#   pre_custom_command: "sudo apt update"
+#   packages :
+#     snap:
+#       - git
+#     flatpak:
+#       - git
+#     ubuntu:
+#       - git
+#     arch:
+#       - git
+#     fedora:
+#       - git
+#   post_custom_command: "sudo apt purge -y"
+#
+#
+################################################################################
+
+---
+#=============================================================#
+# => "ESSENTIAL SOFTWARE"
+#=============================================================#
+essential:
+
+  #-----------------------------------#
+  # Git
+  #-----------------------------------#
+  - message : "Git"
+    packages :
+      ubuntu:
+        - git
+        - git-extras
+        - git-flow
+      
+  #-----------------------------------#
+  # Shells
+  #-----------------------------------#
+  - message : "Shells"
+    packages :
+      ubuntu:
+        - zsh
+
+  #-----------------------------------#
+  # Essential Dev tools
+  #-----------------------------------#
+  - message : "Essential Dev Tools"
+    packages :
+      ubuntu:
+        - build-essential
+        - automake
+        - cmake
+        - autoconf
+        - bison
+        - gcc
+        - make
+        - pkg-config
+        - unzip
+        - curl
+        - sqlite3
+        - postgresql-server-dev-all
+        - unixodbc-dev
+        - txt2tags
+        - zlib1g-dev
+
+  #-----------------------------------#
+  # Essential Dev libraries
+  #-----------------------------------#
+  - message : "Essential Dev libraries"
+    packages :
+      ubuntu:
+        - libtool
+        - libx11-dev
+        - libxtst-dev
+        - libxi-dev
+        - libxslt1-dev
+        - libxslt-dev
+        - libxml2-dev
+        - libssl-dev
+        - libyaml-dev
+        - libreadline6-dev
+        - libreadline-dev
+        - libbz2-dev
+        - libncurses5-dev
+        - libncurses-dev
+        - libffi-dev
+        - libgdbm5
+        - libgdbm-dev
+        - libcurl4-openssl-dev
+        - libsqlite3-dev
+        - libksba8
+        - libksba-dev
+        - libqtwebkit-dev
+
+  #-----------------------------------#
+  # Ruby and dependent dev libraries
+  #-----------------------------------#
+  - message : "Ruby and dependent dev libraries"
+    packages :
+      ubuntu:
+        - ruby
+        - ruby-dev
+        - ruby2.5
+        - ruby2.5-dev
+          
+  #-----------------------------------#
+  # Python and dependent dev libraries
+  #-----------------------------------#
+  - message : "Python and dependent dev libraries"
+    packages :
+      ubuntu:
+        - python3-all
+        - python3-all-dev
+        - python3-pip
+    post_custom_command: "pip3 install --upgrade setuptools"
+
+  #-----------------------------------#
+  # Node.js and dependent dev libraries
+  #-----------------------------------#
+  - message : "Node.js and dependent dev libraries"
+    packages :
+      snap:
+        - "node --classic --channel=13"
+
+
+
+- Linters
+- pip3 install --upgrade setuptools
+- Global npm, pip and gems packages
+
+
+- development sofware (CLI)
+- Vim
+- gpg
+- tmux
+- htop
+- tree
+- silversearcher-ag
+- ripgrep
+- universal-ctags (and alias ctags)
+- xcape
+- postgresql
+- postgresql-contrib
+
+- development sofware (GUI)
+- VScode
+- virtualbox 6
+- postman
+- filezilla
+- meld
+- gitg
+- zeal
+- jupyter-qtconsole
+- sqlitebrowser
+
+- CLI Sofware
+- Utilities
+  - unzip
+  - unace
+  - p7zip-rar
+  - sharutils
+  - rar
+  - arj
+  - lunzip
+  - lzip
+  - par
+  - pandoc
+  - texlive
+- Graphics
+  - pngquant
+  - trimage
+
+- GUI Software
+- 3rd-party software
+  - ubuntu-restricted-extras
+  - skype
+  - dropbox
+- Fonts
+  - fonts-firacode
+  - fonts-roboto
+  - fonts-inconsolata
+  - fonts-nerdfonts
+  - ttf-mscorefonts-installer
+- Utilities
+  - ulauncher (PPA)
+  - guake
+- Wine
+  - wine (PPA)
+  - playonlinux (PPA)
+- Icons
+  - shimmer-themes
+  - elementary-icon-theme
+  - humanity-icon-theme
+  - ubuntu-mono
+  - libreoffice-style-galaxy
+- Games
+  - steam
+  - openttd
+  - dosbox
+- Internet
+  - Google Chrome
+  - geary
+- Multimedia
+  - handbrake (PPA)
+  - vlc
+
+  - google-play-music-desktop-player
+- Graphics
+  - inkscape
+  - gimp
+    
+
+#========================
+#
+# Install flatpak and snap support
+#
+# Enable Multiverse Repositories
+#
+# Install dotfiles
+#
+# Install OH-My-zsh
+#
+# set zsh to default
+#
+# Install dotvim
+#
+# Install vim-plug and vim plugins
+#
+# Install Coc.nvim sources
+#
+# Install VSCode plugins
+#
+# INSTALL LOCAL DEV ENV (asdf)
+#
