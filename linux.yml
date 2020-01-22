@@ -11,8 +11,11 @@
 # # Package title
 # #-----------------------------------#
 # - message : "Package title"
-#   ppa: "ppa:some_user/some_project"
-#   pre_custom_command: "sudo apt update"
+#   ppa: 
+#     - "ppa:some_user/some_project"
+#   pre_custom_commands:
+#     ubuntu: 
+#       - "sudo apt update"
 #   packages :
 #     snap:
 #       - git
@@ -24,7 +27,9 @@
 #       - git
 #     fedora:
 #       - git
-#   post_custom_command: "sudo apt purge -y"
+#   post_custom_commands:
+#     ubuntu:
+#       - "sudo apt purge -y"
 #
 #
 ################################################################################
@@ -124,7 +129,9 @@ essential:
         - python3-all
         - python3-all-dev
         - python3-pip
-    post_custom_command: "pip3 install --upgrade setuptools"
+    post_custom_commands:
+      ubuntu:
+        - "pip3 install --upgrade setuptools"
 
   #-----------------------------------#
   # Node.js and dependent dev libraries
