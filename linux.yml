@@ -135,6 +135,54 @@ essential:
         - "node --classic --channel=13"
 
 
+  #-----------------------------------#
+  # Linters
+  #-----------------------------------#
+  - message : "Linters"
+    npm :
+      #-----------------
+      # HTML, CSS, Markdown
+      #-----------------
+      - stylelint
+      - htmlhint
+      - remark-lint
+      #-----------------
+      # JavaScript
+      #-----------------
+      - eslint
+      - prettier
+      - jsonlint
+      - gqlint # GraphQL
+      - ember-template-lint # Handlebars
+      - pug-lint # Pug/Jade
+      #-----------------
+      # Writing Helpers
+      #-----------------
+      - alex
+      - write-good
+      - proselint
+    pip :
+      #-----------------
+      # Python
+      #-----------------
+      - pylint
+      - flake8
+      #-----------------
+      # Git commit
+      #-----------------
+      - gitlint
+      #-----------------
+      # Vimscript
+      #-----------------
+      - vim-vint
+    gem :
+      #-----------------
+      # Ruby
+      #-----------------
+      - rubocop
+      - solargraph
+      - prettier # gem-prettier for Ruby
+      - haml-lint
 
 - Linters
 - pip3 install --upgrade setuptools
