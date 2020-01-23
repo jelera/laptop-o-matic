@@ -35,10 +35,11 @@
 ################################################################################
 
 ---
-#=============================================================#
-# => "ESSENTIAL SOFTWARE"
-#=============================================================#
-essential:
+#==============================================================================#
+#
+# => ESSENTIAL
+#
+#==============================================================================#
 
   #-----------------------------------#
   # Git
@@ -191,12 +192,18 @@ essential:
       - prettier # gem-prettier for Ruby
       - haml-lint
 
+#==============================================================================#
+#
+# => DEVELOPMENT
+#
+#==============================================================================#
+
   #-----------------------------------#
   # Vim
   #-----------------------------------#
   - message : "Vim"
     ppa: 
-      - "ppa:jonathonf/vim"
+      - "jonathonf/vim"
     pre_custom_commands: 
       ubuntu:
         - "sudo apt purge -y vim vim-tiny vim-runtime vim-common"
@@ -243,10 +250,9 @@ essential:
   #-----------------------------------#
   - message : "Development Software (GUI)"
     ppa:
-      - "ppa:zeal-developers/ppa"
+      - "zeal-developers/ppa"
     packages :
       ubuntu:
-        - filezilla
         - meld
         - gitg
         - zeal
@@ -258,62 +264,150 @@ essential:
         - "sqlitebrowser --edge"
 
 
-- CLI Sofware
-- Utilities
-  - unzip
-  - unace
-  - p7zip-rar
-  - sharutils
-  - rar
-  - arj
-  - lunzip
-  - lzip
-  - par
-  - pandoc
-  - texlive
-- Graphics
-  - pngquant
-  - trimage
+#==============================================================================#
+#
+# => DESKTOP
+#
+#==============================================================================#
 
-- GUI Software
-- 3rd-party software
-  - ubuntu-restricted-extras
-  - skype
-  - dropbox
-- Fonts
-  - fonts-firacode
-  - fonts-roboto
-  - fonts-inconsolata
-  - fonts-nerdfonts
-  - ttf-mscorefonts-installer
-- Utilities
-  - ulauncher (PPA)
-  - guake
-- Wine
-  - wine (PPA)
-  - playonlinux (PPA)
-- Icons
-  - shimmer-themes
-  - elementary-icon-theme
-  - humanity-icon-theme
-  - ubuntu-mono
-  - libreoffice-style-galaxy
-- Games
-  - steam
-  - openttd
-  - dosbox
-- Internet
-  - Google Chrome
-  - geary
-- Multimedia
-  - handbrake (PPA)
-  - vlc
+  #----------------------------------------#
+  # Desktop Software (ALL) : Multiverse
+  #----------------------------------------#
+  - message : "Desktop Software (ALL): Multiverse"
+    packages :
+      ubuntu:
+        - ubuntu-restricted-extras
+ 
+  #----------------------------------------#
+  # Desktop Software (GUI) : Look and feel
+  #----------------------------------------#
+  - message : "Desktop Software (GUI): Look and feel"
+    packages :
+      ubuntu:
+        - numix-gtk-theme
+        - numix-icon-theme
+        - shimmer-themes
+        - elementary-icon-theme
+        - humanity-icon-theme
+        - ubuntu-mono
+        - libreoffice-style-galaxy
 
-  - google-play-music-desktop-player
-- Graphics
-  - inkscape
-  - gimp
+  #----------------------------------------#
+  # Desktop Software (CLI) : Utilities
+  #----------------------------------------#
+  - message : "Desktop Software (CLI): Utilities"
+    packages :
+      ubuntu:
+        - unzip
+        - unace
+        - p7zip-rar
+        - sharutils
+        - rar
+        - arj
+        - lunzip
+        - lzip
+        - par
+        - pandoc
+        - texlive
+
+  #----------------------------------------#
+  # Desktop Software (CLI) : Graphics
+  #----------------------------------------#
+  - message : "Desktop Software (CLI): Graphics"
+    packages :
+      ubuntu:
+        - pngquant
+
+  #----------------------------------------#
+  # Desktop Software (GUI) : Fonts
+  #----------------------------------------#
+  - message : "Desktop Software (GUI): Fonts"
+    pre_custom_commands:
+      - "echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections"
+    packages :
+      ubuntu:
+        - font-manager
+        - fonts-firacode
+        - fonts-hack
+        - fonts-roboto
+        - fonts-inconsolata
+        - fonts-nerdfonts
+        - ttf-mscorefonts-installer
+
+  #----------------------------------------#
+  # Desktop Software (GUI) : Utilities
+  #----------------------------------------#
+  - message : "Desktop Software (GUI): Utilities"
+    ppa:
+      - "agornostal/ulauncher"
+    packages :
+      ubuntu:
+        - ulauncher
+        - guake
+
+  #----------------------------------------#
+  # Desktop Software (GUI) : Wine
+  #----------------------------------------#
+  - message : "Desktop Software (GUI): Wine"
+    packages :
+      ubuntu:
+        - wine-stable
+        - playonlinux
+
+  #----------------------------------------#
+  # Desktop Software (GUI) : Games
+  #----------------------------------------#
+  - message : "Desktop Software (GUI): Games"
+    packages :
+      ubuntu:
+        - steam
+        - openttd
+        - dosbox
+
+  #----------------------------------------#
+  # Desktop Software (GUI) : Internet
+  #----------------------------------------#
+  - message : "Desktop Software (GUI): Internet"
+    packages :
+      ubuntu:
+        - filezilla
+      flatpak:
+        - "org.gnome.geary"
+
+  #----------------------------------------#
+  # Desktop Software (GUI) : Multimedia
+  #----------------------------------------#
+  - message : "Desktop Software (GUI): Multimedia"
+    ppa:
+      - "stebbins/handbrake-releases"
+    packages :
+      ubuntu:
+        - handbrake
+      snap:
+        - google-play-music-desktop-player
+        - vlc
+
+  #----------------------------------------#
+  # Desktop Software (GUI) : Graphics
+  #----------------------------------------#
+  - message : "Desktop Software (GUI): Graphics"
+    packages :
+      ubuntu:
+        - inkscape
+        - gimp
+        - trimage
+      snap:
+        - obs-studio
     
+  #----------------------------------------#
+  # Desktop Software (GUI) : 3rd-party
+  #----------------------------------------#
+  - message : "Desktop Software (GUI): 3rd-party"
+    packages :
+      ubuntu:
+        - dropbox
+      snap:
+        - skype
 
 #========================
 #
