@@ -1,7 +1,3 @@
-#!/usr/bin/env ruby
+#!/bin/bash
 
-require_relative './config/environment'
-
-puts 'Hi there, I\'m laptop'
-
-binding.pry
+bin/laptop
