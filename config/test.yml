@@ -1,0 +1,53 @@
+#-----------------------------------#
+# Package title
+#-----------------------------------#
+---
+- message : "1. test title"
+  ppa: 
+    - "some_user/some_project"
+  pre_custom_commands:
+    ubuntu: 
+      - "sudo apt update"
+      - "systemctl -2"
+  packages :
+    snap:
+      - git
+      - tmux
+      - vim
+    flatpak:
+      - git
+      - gedit
+    ubuntu:
+      - git
+      - php
+      - ruby-dev
+    arch:
+      - git
+    fedora:
+      - git
+  post_custom_commands:
+    ubuntu:
+      - "systemctl -d"
+      - "sudo apt purge -y"
+      - "systemctl -d"
+
+# - message : "2. test title"
+#   ppa: 
+#     - "ppa:some_user/some_project"
+#   pre_custom_commands:
+#     ubuntu: 
+#       - "sudo apt update"
+#   packages :
+#     snap:
+#       - git
+#     flatpak:
+#       - git
+#     ubuntu:
+#       - git
+#     arch:
+#       - git
+#     fedora:
+#       - git
+#   post_custom_commands:
+#     ubuntu:
+#       - "sudo apt purge -y"

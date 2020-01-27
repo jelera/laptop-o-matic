@@ -1,0 +1,79 @@
+################################################################################
+#
+# Use (or reuse) these templates for other OSs
+#
+#
+#  #-----------------------------------------#
+#  # Arch Linux / Manjaro
+#  #-----------------------------------------#
+#  ARCH LINUX:
+#    sudo: true
+#    install_command: 'pacman -S'
+#    versions:
+#      all:
+#        - "Arch Linux"
+#
+#
+################################################################################
+---
+personal:
+  dotfiles: ""
+  dotvim: ""
+
+# Options
+# -------
+# - dev: installs only a development environment
+# - desktop: installs only desktop software
+# - all: will install everything
+options:
+  - all
+
+supported_os:
+  #===========================================================================#
+  #
+  # => LINUX
+  #
+  #===========================================================================#
+  LINUX:
+    #----------------------------------------#
+    # Ubuntu / Linux Mint / KDE Neon
+    #----------------------------------------#
+    UBUNTU:
+      sudo: true
+      install_command: 'apt install -y'
+      update_command: 'apt update'
+      codenames:
+        - bionic # 18.04
+          
+    #-----------------------------------------#
+    # Snap Support
+    #-----------------------------------------#
+    SNAP:
+      enabled: true
+      sudo: true
+      install_command: 'snap install'
+
+    #-----------------------------------------#
+    # Flatpak Support
+    #-----------------------------------------#
+    FLATPAK:
+      enabled: true
+      sudo: false
+      install_command: 'flatpak install flathub'
+
+
+  #===========================================================================#
+  #
+  # => MACOS
+  #
+  #===========================================================================#
+  # TODO: Implement MacOS support
+  MACOS:
+   #----------------------------------------#
+   # Homebrew
+   #----------------------------------------#
+   HOMEBREW:
+     sudo: false
+     install_command: 'brew install'
+     versions:
+     - 'el_capitan'
