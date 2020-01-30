@@ -3,10 +3,6 @@
 #
 # USAGE: Use this format new packages or set of them as follows
 #
-# NOTE: Snaps and flatpak will take precendence and the install script will
-#       ignore the rest of the lines.
-#
-#
 # #-----------------------------------#
 # # Package title
 # #-----------------------------------#
