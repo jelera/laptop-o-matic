@@ -1,6 +1,5 @@
 ################################################################################
 #
-#
 # USAGE: Use this format new packages or set of them as follows
 #
 # #-----------------------------------#
@@ -275,19 +274,6 @@
       ubuntu:
         - ubuntu-restricted-extras
  
-  #----------------------------------------#
-  # Desktop Software (GUI) : Look and feel
-  #----------------------------------------#
-  - message : "Desktop Software (GUI): Look and feel"
-    packages :
-      ubuntu:
-        - numix-gtk-theme
-        - numix-icon-theme
-        - shimmer-themes
-        - elementary-icon-theme
-        - humanity-icon-theme
-        - ubuntu-mono
-        - libreoffice-style-galaxy
 
   #----------------------------------------#
   # Desktop Software (CLI) : Utilities
@@ -314,6 +300,20 @@
     packages :
       ubuntu:
         - pngquant
+
+  #----------------------------------------#
+  # Desktop Software (GUI) : Look and feel
+  #----------------------------------------#
+  - message : "Desktop Software (GUI): Look and feel"
+    packages :
+      ubuntu:
+        - numix-gtk-theme
+        - numix-icon-theme
+        - shimmer-themes
+        - elementary-icon-theme
+        - humanity-icon-theme
+        - ubuntu-mono
+        - libreoffice-style-galaxy
 
   #----------------------------------------#
   # Desktop Software (GUI) : Fonts
@@ -371,6 +371,14 @@
         - filezilla
       flatpak:
         - "org.gnome.geary"
+
+  #----------------------------------------#
+  # Desktop Software (GUI) : Office
+  #----------------------------------------#
+  - message : "Desktop Software (GUI): Office"
+    packages :
+      ubuntu:
+        - gnome-contacts
 
   #----------------------------------------#
   # Desktop Software (GUI) : Multimedia

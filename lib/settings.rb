@@ -9,8 +9,7 @@ module Laptop
     #---------------------------------------------------------------#
     def self.parse_yml(file_yml)
       # This returns a all-keys-as-symbols hash from YAML file
-      file_yml_path = file_yml
-      file_json = YAML.load_file(file_yml_path).to_json
+      file_json = YAML.load_file(file_yml).to_json
       JSON.parse(file_json, symbolize_names: true)
     end
 
@@ -26,11 +25,11 @@ module Laptop
     end
 
     def self.supported_oses
-      parse_config_yml[:supported_os].keys
+      parse_config_yml[:supported_os]
     end
 
     def self.supported_install_methods
-      parse_config_yml[:supported_os].map do |_k, v_hash|
+      supported_oses.map do |_k, v_hash|
         v_hash.keys
       end.flatten
     end
@@ -39,7 +38,7 @@ module Laptop
     # => Linux-specific
     #---------------------------------------------------------------#
     def self.supported_linux_distros
-      parse_config_yml[:supported_os][:LINUX].delete_if do |key|
+      supported_oses[:LINUX].delete_if do |key|
         %i[SNAP FLATPAK].include? key
       end
     end
@@ -48,7 +47,7 @@ module Laptop
     # => Ubuntu-specific
     #---------------------------------------------------------------#
     def self.supported_ubuntu_codenames
-      parse_config_yml[:supported_os][:LINUX][:UBUNTU][:codenames]
+      supported_oses[:LINUX][:UBUNTU][:codenames]
     end
   end
 end

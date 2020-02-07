@@ -1,0 +1,153 @@
+###############################################################################
+# Install flatpak and snap support
+#
+# Enable Multiverse Repositories
+#
+# Install packages
+
+#========================
+
+	title: 'Git Tools'
+	desc: 'It helps with stuff'
+	custom_install_commands:
+		ubuntu:
+			- some-command
+	pkgs:
+		snap:
+			- some-package-name
+		flatpak:
+			- some-package-name
+		all:
+      - git
+      - git-extras
+      - git-flow
+		ubuntu:
+			- some-package-name
+		fedora:
+			- some-package-name
+		arch:
+			- some-package-name
+		
+#========================
+
+	title: 'Git Tools'
+      - git
+      - git-extras
+      - git-flow
+#
+	- Shell
+#     - zsh
+#
+	- Essential Building Libraries
+#     - Essential Dev Tools
+#     - Common Dev Libraries
+#     - Ruby and dev libs
+#     - Python and dev libs
+#     - Node.js and dev libs
+#
+#   - Linters
+
+	- Essential Development Libraries
+#     - pip3 install --upgrade setuptools
+#     - Global npm, pip and gems packages
+#
+#   - development sofware (CLI)
+#     - Vim
+#     - gpg
+#     - tmux
+#     - htop
+#     - tree
+#     - silversearcher-ag
+#     - ripgrep
+#     - universal-ctags (and alias ctags)
+#     - xcape
+#     - postgresql
+#     - postgresql-contrib
+#
+#   - development sofware (GUI)
+#     - VScode
+#     - virtualbox 6
+#     - postman
+#     - filezilla
+#     - meld
+#     - gitg
+#     - zeal
+#     - jupyter-qtconsole
+#     - sqlitebrowser
+#
+#   - CLI Sofware
+#     - Utilities
+#       - unzip
+#       - unace
+#       - p7zip-rar
+#       - sharutils
+#       - rar
+#       - arj
+#       - lunzip
+#       - lzip
+#       - par
+#       - pandoc
+#       - texlive
+#     - Graphics
+#       - pngquant
+#       - trimage
+#
+#   - GUI Software
+#     - 3rd-party software
+#       - ubuntu-restricted-extras
+#       - skype
+#       - dropbox
+#     - Fonts
+#       - fonts-firacode
+#       - fonts-roboto
+#       - fonts-inconsolata
+#       - fonts-nerdfonts
+#       - ttf-mscorefonts-installer
+#     - Utilities
+#       - ulauncher (PPA)
+#       - guake
+#     - Wine
+#       - wine (PPA)
+#       - playonlinux (PPA)
+#     - Icons
+#       - shimmer-themes
+#       - elementary-icon-theme
+#       - humanity-icon-theme
+#       - ubuntu-mono
+#       - libreoffice-style-galaxy
+#     - Games
+#       - steam
+#       - openttd
+#       - dosbox
+#     - Internet
+#       - Google Chrome
+#       - geary
+#     - Multimedia
+#       - handbrake (PPA)
+#       - vlc
+#       - obs-studio
+#       - google-play-music-desktop-player
+#     - Graphics
+#       - inkscape
+#       - gimp
+#     
+#     
+#
+#========================
+#
+# Install dotfiles
+#
+# Install OH-My-zsh
+#
+# set zsh to default
+#
+# Install dotvim
+#
+# Install vim-plug and vim plugins
+#
+# Install Coc.nvim sources
+#
+# Install VSCode plugins
+#
+# INSTALL LOCAL DEV ENV (asdf)
+#

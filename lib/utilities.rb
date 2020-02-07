@@ -7,6 +7,22 @@ module Laptop
     #--------------------------------------------------------------------------#
     # => HELPERS
     #--------------------------------------------------------------------------#
+    def self.install_command_constructor(install_method)
+      # Command constructor
+      supported_oses = Laptop::Settings.parse_config_yml[:supported_os]
+
+      supported_oses.each do |_k, im_hash|
+        im_hash.each do |im_name, im_options|
+          next unless im_name.to_s.downcase == install_method.to_s.downcase
+
+          output = "#{im_options[:install_command]} #{package_name}"
+          output = "sudo #{output}" if im_options[:sudo]
+          break
+        end
+      end
+
+    end
+
     def self.install_package(package_name, install_method)
       output = nil
 
@@ -94,62 +110,12 @@ module Laptop
     end
 
     #--------------------------------------------------------------------------#
-    # => PRINTING METHODS
-    #--------------------------------------------------------------------------#
-    def self.print_package_message(message, color)
-      puts ''
-      puts ''
-      print_horizontal_line('#', '=', color)
-      puts '#'.colorize(color)
-      puts "# => #{message}".colorize(color)
-      puts '#'.colorize(color)
-      print_horizontal_line('#', '=', color)
-      puts ''
-    end
-
-    def self.print_success_message(color)
-      puts ''
-      puts '✔️  DONE, Successful install!'.colorize(color)
-      puts ''
-    end
-
-    def self.print_horizontal_line(char1, char2 = '', color = :default)
-      term_width = Readline.get_screen_size[1]
-      char2 = char1 if char2.empty?
-      print char1.colorize(color)
-      (term_width - 2).times { print char2.colorize(color) }
-      print char1.colorize(color)
-    end
-
-    def self.center_txt(text, decorative)
-      term_width = Readline.get_screen_size[1]
-      output = ''
-      output += decorative
-      ((term_width - text.size - (decorative.size * 2)) / 2 ).times { output += ' ' }
-      output += text
-      ((term_width - text.size - (decorative.size * 2)) / 2 ).times { output += ' ' }
-      output += decorative
-    end
-
-    def self.final_msg
-      term_width = Readline.get_screen_size[1]
-      print_horizontal_line('#', '#')
-      puts '#'
-      puts '#'
-      puts center_txt('DONE WITH INSTALLING ALL PACKAGES', '#')
-      puts '#'
-      puts '#'
-      print_horizontal_line('#', '#')
-      puts
-    end
-
-    #--------------------------------------------------------------------------#
     # => MAIN
     #--------------------------------------------------------------------------#
 
     def self.process_package_list(package_list)
       package_list.each do |package_set|
-        print_package_message(package_set[:message], :light_green)
+        Laptop::Print.print_package_message(package_set[:message], :light_green)
 
         if package_set[:ppa]
           package_set[:ppa].each { |ppa_address| add_ppa ppa_address }
@@ -169,10 +135,10 @@ module Laptop
           install_custom_command_from_list package_set[:post_custom_commands]
         end
 
-        print_success_message :green
+        Laptop::Print.print_success_message :green
       end
 
-      final_msg
+      Laptop::Print.final_msg
     end
 
   end
